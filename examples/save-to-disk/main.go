@@ -54,6 +54,7 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
+
 			for {
 				if err := i.AddPacket(<-track.Packets); err != nil {
 					panic(err)

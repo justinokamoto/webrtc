@@ -736,6 +736,12 @@ func (pc *RTCPeerConnection) SetIdentityProvider(provider string) error {
 	return errors.Errorf("TODO SetIdentityProvider")
 }
 
+// SendRTCP sends a user provided RTCP packet to the connected peer
+// If no peer is connected the packet is discarded
+func (pc *RTCPeerConnection) SendRTCP(pkt []byte) {
+	pc.networkManager.SendRTCP(pkt)
+}
+
 // Close ends the RTCPeerConnection
 func (pc *RTCPeerConnection) Close() error {
 	pc.networkManager.Close()
